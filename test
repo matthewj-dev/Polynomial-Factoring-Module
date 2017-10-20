@@ -1,1 +1,46 @@
-#hello comment section
+from array import *
+import math
+import time
+
+#factoring algorithm
+def factoring(n, factorTree):
+
+    #copy the original number
+    N = n
+
+    #loop while n is factorable by 2
+    while n % 2 == 0:
+        factorTree.append(2)
+        n = n / 2
+
+    #loop while n is odd through sqrt(n)
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+
+        while n % i == 0:
+            factorTree.append(i)
+            n = n / i
+
+    #if n is a prime larger than 2 then
+    if n > 2:
+        factorTree.append(n)
+    else:
+        factorTree.append(N)
+
+    return factorTree
+
+
+n = 350000 #15485863 #our test number as well as a large prime number
+
+#declare an array structure with 4 byte elements
+factorTree = array('L', [])
+
+start = time.time()
+#factor tree and append to the array
+factoring(n, factorTree)
+end = time.time()
+
+#print the array
+for i in factorTree:
+    print(i)
+
+print(((end - start)*1000) , "milliseconds")
