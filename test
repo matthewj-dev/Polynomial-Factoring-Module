@@ -1,33 +1,46 @@
-import math
+from number import Number
+import random
 import time
-import functools
-'''
-from threading import Thread
-from array import *
-'''
 
-'''
-small lists hold factors starting with i and c/i
-the algorithm loops through sqrt(c)
-each list is combined with reduce(list.__add__, ...)
-'''
-def factorsOf(c):
-    factorList = sorted(reduce(list.__add__, ([i, c//i] for i in range(1, int(c**0.5) + 1) if c % i == 0)))
-    factorList.pop()
-    return factorList
+'''initialises a quotient list to be used later'''
+quotientList = []
+seconds = time.time()
 
-c1 = (int(input("Input an first integer to factor: ")))   # 350000
-c2 = (int(input("Input an second integer to factor: ")))  # 15485863
-                                                        # our test number as well as a large prime number
-start = time.time()
-#get factors
-factorsC1 = factorsOf(c1)
-factorsC2 = factorsOf(c2)
+mynum =5#3500000000000#9445128 #random.randrange(1, 35000000)
+num1 = Number(mynum)
+num1.displayFactors()
 
-#print the list of factors
-print(factorsC1)
-print(factorsC2)
-end = time.time()
+othernum =10#35000#9445128 #1831923
+num2 = Number(othernum)
+num2.displayFactors()
 
-#print the execution time
-print(((end - start)*1000) , "milliseconds")
+
+
+list1len = len(num1.factorlist)
+list2len = len(num2.factorlist)
+'''The lines of code below goes through the factor list of both numbers and
+divides the second number(probably will change to be accurate) divided over
+the first number(also likely to change) but does allow for duplicates
+
+selfnote: if I remember synthetic division well enough it can be used for
+factors on the polynomial and may not need to be reset and factors done again
+on the new polynomial'''
+for p in range (len(num1.factorlist)):#this 2 factors of 5
+    tempnum = num1.factorlist.pop()
+    for q in range (len(num2.factorlist)):#this is 4 factors of 10
+        termnum = num2.factorlist.pop()
+        #print("Terminal number")
+        #print(termnum)
+
+        quotientList.append(termnum / tempnum)
+        quotientList.append(-1 *(termnum / tempnum))
+
+        num2.factorlist.insert(0, termnum)
+    #num1.appendList(tempnum)'''
+
+print(quotientList)
+print((time.time() - seconds))
+
+'''from here set up for synthetic division on passed in polynomial so reading
+in polynomial is next step and making those the numbers set to the numbers
+are getting factors found'''
