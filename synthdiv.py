@@ -5,11 +5,8 @@ def synthetic_div(polynomial, factor_list):
     result = []
     for j in range(count, len(factor_list)):
         for i in range(0, len(polynomial)):
-            print(tempval)
             tempval = tempval + polynomial[i] 
-            print(tempval)
             tempval = tempval * factor_list[count]
-            print(tempval)
 
         if tempval == 0:
              result.append(factor_list[count])
