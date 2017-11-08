@@ -30,4 +30,4 @@ print(factorsC2)
 end = time.time()
 
 #print the execution time
-print(((end - start)*1000) , "milliseconds")
+print((end - start) , "milliseconds")
