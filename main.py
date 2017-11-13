@@ -75,3 +75,4 @@ are getting factors found'''
 poly = firstPoly.constants
 factors = list(firstPoly.quotients)
 result = calc.synthetic_div(poly, factors)
+print(result)

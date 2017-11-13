@@ -18,7 +18,7 @@ class Calculations:
     def appendList(self, otter):
         self.factorlist.append(otter)
 
-    def synthetic_div(polynomial, factor_list):
+    def synthetic_div(self, polynomial, factor_list):
 
         count = 0
         tempval = 0
