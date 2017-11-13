@@ -4,6 +4,7 @@ class Calculations:
 #what makes a number factors
     # other = 0
     #factorlist =[1]
+
     def __init__(self, number):
         self.number = number
         self.factorlist = [1]
@@ -26,8 +27,8 @@ class Calculations:
         for j in range(count, len(factor_list)):
 
             for i in range(0, len(polynomial)):
-            tempval = tempval + polynomial[i]
-            tempval = tempval * factor_list[count]
+                tempval = tempval + polynomial[i]
+                tempval = tempval * factor_list[count]
 
             if tempval == 0:
                 result.append(factor_list[count])
