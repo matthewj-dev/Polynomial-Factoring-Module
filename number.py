@@ -5,6 +5,7 @@ class Number:
     other = 0
     #factorlist =[1]
     def __init__(self, number):
+
         self.number = number
         self.factorlist = [1]
         self.half = number // 2
