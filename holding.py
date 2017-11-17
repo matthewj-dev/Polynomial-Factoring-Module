@@ -7,6 +7,7 @@ class Holding:
         self.quotients = set()
         self.first = leading
         self.last = trailing
+        self.roots = []
 
     def getLeadingFactors(self):
         return self.leadingfactors

@@ -18,7 +18,7 @@ class Calculations:
     def appendList(self, otter):
         self.factorlist.append(otter)
 
-    def synthetic_div(self, polynomial, factor_list):
+    def synthetic_div(self, step, polynomial, factor_list):
 
         count = 0
         tempval = 0
@@ -31,8 +31,15 @@ class Calculations:
                 tempval = tempval * factor_list[count]
 
             if tempval == 0:
+                step.roots.append(factor_list[j])
                 result.append(factor_list[count])
 
             tempval = 0
             count += 1
         return result
+
+    def quadraticFormula(self, smallPoly, polynomial, factor_list):
+        print(polynomial[0], polynomial[1], polynomial[2])
+
+        smallPoly.roots.append(int(-(polynomial[1]) + ((polynomial[1]**2) - 4*polynomial[0]*polynomial[2])**0.5)/(2*polynomial[0]))
+        smallPoly.roots.append(int(-(polynomial[1]) - ((polynomial[1]**2) - 4*polynomial[0]*polynomial[2])**0.5)/(2*polynomial[0]))
