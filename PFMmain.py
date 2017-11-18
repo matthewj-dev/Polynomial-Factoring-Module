@@ -1,5 +1,5 @@
-from number import Number
-from example import Example
+from PFMnumber import Number
+from PFMexample import Example
 import random
 import time
 import sys
