@@ -1,6 +1,6 @@
 class Holding:
 
-    def __init__(self, varList, degree, leading, trailing):
+    def __init__(self, varList, degree, leading, trailing, root):
 
         self.constants = varList
         self.degrees = degree
@@ -8,6 +8,7 @@ class Holding:
         self.first = leading
         self.last = trailing
         self.roots = []
+        self.roots.extend(root)
 
     def getLeadingFactors(self):
         return self.leadingfactors

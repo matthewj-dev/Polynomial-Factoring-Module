@@ -34,7 +34,7 @@ for w in range(0, (polynomialLen+1)):
 
     #powerList.append(int(input("Power:")))
 
-firstPoly = Holding(varList, polynomialLen, mynum, othernum)
+firstPoly = Holding(varList, polynomialLen, mynum, othernum, [])
 
 print("Here are the constants ", firstPoly.constants)
 
@@ -76,16 +76,22 @@ print("quotients ",firstPoly.quotients)
 in polynomial is next step and making those the numbers set to the numbers
 are getting factors found'''
 
-polys = [firstPoly]
+polys = []
+polys.append(firstPoly)
 
 for j in range(0, polynomialLen):
-    if (polynomialLen) > 2:
+    if (polys[0].degrees) > 0:
         poly = polys.pop()
         constants = list(poly.constants)
-        factors = list(poly.quotients)
+        print(constants)
+        factors = sorted(list(firstPoly.quotients))
         result = calc.synthetic_div(poly, constants, factors)
-        polys.append(Holding(result, (poly.degrees - 1), result[0], result[(len(result)-1)]))
+        polys.append(Holding(result, (poly.degrees - 1), 1, 1, poly.roots))
+        setOfRoots = set(poly.roots)
+        print(polys[0], polys[0].constants, polys[0].degrees, setOfRoots)
 
-smallPoly = polys.pop()
-calc.quadraticFormula(smallPoly, smallPoly.constants, smallPoly.quotients)
-print(smallPoly.roots)
+# # print(polys)
+# smallPoly = polys.pop()
+# print(smallPoly.constants)
+# calc.quadraticFormula(smallPoly, smallPoly.constants)
+# print(set(smallPoly.roots))

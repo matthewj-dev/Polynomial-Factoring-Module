@@ -31,15 +31,20 @@ class Calculations:
                 tempval = tempval * factor_list[count]
 
             if tempval == 0:
-                step.roots.append(factor_list[j])
-                result.append(factor_list[count])
+                step.roots.append(factor_list[count])
+                tempval = 0
+                for i in range(0, len(polynomial)-1):
+                    tempval = tempval + polynomial[i]
+                    result.append(tempval)
+                    tempval = tempval * factor_list[count]
+                break
 
             tempval = 0
             count += 1
+
         return result
 
-    def quadraticFormula(self, smallPoly, polynomial, factor_list):
-        print(polynomial[0], polynomial[1], polynomial[2])
+    def quadraticFormula(self, smallPoly, polynomial):
 
         smallPoly.roots.append(int(-(polynomial[1]) + ((polynomial[1]**2) - 4*polynomial[0]*polynomial[2])**0.5)/(2*polynomial[0]))
         smallPoly.roots.append(int(-(polynomial[1]) - ((polynomial[1]**2) - 4*polynomial[0]*polynomial[2])**0.5)/(2*polynomial[0]))
