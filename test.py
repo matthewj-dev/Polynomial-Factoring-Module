@@ -110,7 +110,7 @@ while j != 'q':
                     print('x - ', result[w])
                 else:
                     print('x + ', abs(result[w]))
-'
+
         elif choice == 'n' or choice == 'N':
             i = 0
         else:
