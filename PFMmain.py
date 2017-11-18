@@ -67,10 +67,10 @@ while j != 'q':
             seconds = time.time()   # start timer for early testing
 
             num1 = Number(abs(mynum)) # get the factor list q for the leading coefficient
-            print("The factor list q for the leading coefficient is:", num1)
+            print("The factor list q for the leading coefficient is:", num1.factorlist)
 
             num2 = Number(abs(othernum)) # get the factor list p for the trailing coefficient
-            print("The factor list p for the trailing coefficient is:", num2)
+            print("The factor list p for the trailing coefficient is:", num2.factorlist)
 
             # The lines of code below goes through the factor list of both numbers and
             # divides the second number over the first number: +-p/q
